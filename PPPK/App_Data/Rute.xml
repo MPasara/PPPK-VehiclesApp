@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<Route>
+  <xs:schema id="Route" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="Route" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Table">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="IDRoute" type="xs:int" minOccurs="0" />
+                <xs:element name="TravelHours" type="xs:int" minOccurs="0" />
+                <xs:element name="CoordinateA" type="xs:double" minOccurs="0" />
+                <xs:element name="CoordinateB" type="xs:double" minOccurs="0" />
+                <xs:element name="KilometersTavelled" type="xs:int" minOccurs="0" />
+                <xs:element name="AverageSpeed" type="xs:double" minOccurs="0" />
+                <xs:element name="FuelSpent" type="xs:double" minOccurs="0" />
+                <xs:element name="TravelWarrantID" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Table>
+    <IDRoute>1</IDRoute>
+    <TravelHours>5</TravelHours>
+    <CoordinateA>12</CoordinateA>
+    <CoordinateB>21</CoordinateB>
+    <KilometersTavelled>400</KilometersTavelled>
+    <AverageSpeed>78</AverageSpeed>
+    <FuelSpent>21</FuelSpent>
+    <TravelWarrantID>1</TravelWarrantID>
+  </Table>
+</Route>

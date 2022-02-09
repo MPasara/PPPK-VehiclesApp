@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PPPKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="IDDriver" />
+    </Key>
+    <Property Name="IDDriver" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DrivingLicenceNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TravelRoute">
+    <Key>
+      <PropertyRef Name="IDRoute" />
+    </Key>
+    <Property Name="IDRoute" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TravelHours" Type="int" Nullable="false" />
+    <Property Name="CoordinateA" Type="float" Nullable="false" />
+    <Property Name="CoordinateB" Type="float" Nullable="false" />
+    <Property Name="KilometersTavelled" Type="int" Nullable="false" />
+    <Property Name="AverageSpeed" Type="float" Nullable="false" />
+    <Property Name="FuelSpent" Type="float" Nullable="false" />
+    <Property Name="TravelWarrantID" Type="int" />
+  </EntityType>
+  <EntityType Name="TravelWarrant">
+    <Key>
+      <PropertyRef Name="IDTravelWarrant" />
+    </Key>
+    <Property Name="IDTravelWarrant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Commander" Type="nvarchar" MaxLength="100" />
+    <Property Name="WarrantNumber" Type="int" Nullable="false" />
+    <Property Name="StartPoint" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Destination" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="QuantityOfDays" Type="int" Nullable="false" />
+    <Property Name="DateOfOpening" Type="datetime" Nullable="false" />
+    <Property Name="DateOfClosing" Type="datetime" Nullable="false" />
+    <Property Name="DriverID" Type="int" Nullable="false" />
+    <Property Name="VehicleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="IDVehicle" />
+    </Key>
+    <Property Name="IDVehicle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleType" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Make" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="YearOfMake" Type="int" Nullable="false" />
+    <Property Name="Kilometers" Type="int" Nullable="false" />
+    <Property Name="IsAvailable" Type="bit" Nullable="false" />
+    <Property Name="VehicleServiceDetails" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleService">
+    <Key>
+      <PropertyRef Name="IDservice" />
+    </Key>
+    <Property Name="IDservice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceDetails" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ServiceDate" Type="datetime" Nullable="false" />
+    <Property Name="VehicleID" Type="int" />
+  </EntityType>
+  <Association Name="FK__TravelRou__Trave__2C3393D0">
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="0..1" />
+    <End Role="TravelRoute" Type="Self.TravelRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravelWarrant">
+        <PropertyRef Name="IDTravelWarrant" />
+      </Principal>
+      <Dependent Role="TravelRoute">
+        <PropertyRef Name="TravelWarrantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelWar__Drive__286302EC">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="IDDriver" />
+      </Principal>
+      <Dependent Role="TravelWarrant">
+        <PropertyRef Name="DriverID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravelWar__Vehic__29572725">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+    <End Role="TravelWarrant" Type="Self.TravelWarrant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="IDVehicle" />
+      </Principal>
+      <Dependent Role="TravelWarrant">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VehicleSe__Vehic__2F10007B">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="VehicleService" Type="Self.VehicleService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="IDVehicle" />
+      </Principal>
+      <Dependent Role="VehicleService">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="addExampleRecords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="cleanDatabase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="createDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDriver" Type="int" Mode="InOut" />
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Surname" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="DrivingLicenceNumber" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="createTravelRoute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDRoute" Type="int" Mode="InOut" />
+    <Parameter Name="TravelHours" Type="int" Mode="In" />
+    <Parameter Name="CoordinateA" Type="float" Mode="In" />
+    <Parameter Name="CoordinateB" Type="float" Mode="In" />
+    <Parameter Name="KilometersTavelled" Type="int" Mode="In" />
+    <Parameter Name="AverageSpeed" Type="float" Mode="In" />
+    <Parameter Name="FuelSpent" Type="float" Mode="In" />
+    <Parameter Name="TravelWarrantID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="createTravelWarrant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDTravelWarrant" Type="int" Mode="InOut" />
+    <Parameter Name="Commander" Type="nvarchar" Mode="In" />
+    <Parameter Name="WarrantNumber" Type="int" Mode="In" />
+    <Parameter Name="StartPoint" Type="nvarchar" Mode="In" />
+    <Parameter Name="Destination" Type="nvarchar" Mode="In" />
+    <Parameter Name="QuantityOfDays" Type="int" Mode="In" />
+    <Parameter Name="DateOfOpening" Type="datetime" Mode="In" />
+    <Parameter Name="DateOfClosing" Type="datetime" Mode="In" />
+    <Parameter Name="DriverID" Type="int" Mode="In" />
+    <Parameter Name="VehicleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="createVehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDVehicle" Type="int" Mode="InOut" />
+    <Parameter Name="VehicleType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Make" Type="nvarchar" Mode="In" />
+    <Parameter Name="YearOfMake" Type="int" Mode="In" />
+    <Parameter Name="Kilometers" Type="int" Mode="In" />
+    <Parameter Name="IsAvailable" Type="bit" Mode="In" />
+    <Parameter Name="VehicleServiceDetails" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="createVehicleService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDservice" Type="int" Mode="InOut" />
+    <Parameter Name="ServiceDetails" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ServiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="VehicleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleteDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDriver" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleteRoute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDRoute" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleteTravelWarrant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDTravelWarrant" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleteVehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDVehicle" Type="int" Mode="In" />
+  </Function>
+  <Function Name="deleteVehicleService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDservice" Type="int" Mode="In" />
+  </Function>
+  <Function Name="exportDataToXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDRoute" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getAllDataFromDatabase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="selectDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDriver" Type="int" Mode="In" />
+  </Function>
+  <Function Name="selectDrivers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="selectTravelRoute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDRoute" Type="int" Mode="In" />
+  </Function>
+  <Function Name="selectTravelRoutes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="selectTravelWarrant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDTravelWarrant" Type="int" Mode="In" />
+  </Function>
+  <Function Name="selectTravelWarrants" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="selectVehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDVehicle" Type="int" Mode="In" />
+  </Function>
+  <Function Name="selectVehicles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="selectVehicleService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDservice" Type="int" Mode="In" />
+  </Function>
+  <Function Name="selectVehicleServices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="updateDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDDriver" Type="int" Mode="In" />
+    <Parameter Name="Firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Surname" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="DrivingLicenceNumber" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="updateTravelRoute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDRoute" Type="int" Mode="In" />
+    <Parameter Name="TravelHours" Type="int" Mode="In" />
+    <Parameter Name="CoordinateA" Type="float" Mode="In" />
+    <Parameter Name="CoordinateB" Type="float" Mode="In" />
+    <Parameter Name="KilometersTavelled" Type="int" Mode="In" />
+    <Parameter Name="AverageSpeed" Type="float" Mode="In" />
+    <Parameter Name="FuelSpent" Type="float" Mode="In" />
+    <Parameter Name="TravelWarrantID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="updateTravelWarrant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDTravelWarrant" Type="int" Mode="In" />
+    <Parameter Name="Commander" Type="nvarchar" Mode="In" />
+    <Parameter Name="WarrantNumber" Type="int" Mode="In" />
+    <Parameter Name="StartPoint" Type="nvarchar" Mode="In" />
+    <Parameter Name="Destination" Type="nvarchar" Mode="In" />
+    <Parameter Name="QuantityOfDays" Type="int" Mode="In" />
+    <Parameter Name="DateOfOpening" Type="datetime" Mode="In" />
+    <Parameter Name="DateOfClosing" Type="datetime" Mode="In" />
+    <Parameter Name="DriverID" Type="int" Mode="In" />
+    <Parameter Name="VehicleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="updateVehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDVehicle" Type="int" Mode="In" />
+    <Parameter Name="VehicleType" Type="nvarchar" Mode="In" />
+    <Parameter Name="Make" Type="nvarchar" Mode="In" />
+    <Parameter Name="YearOfMake" Type="int" Mode="In" />
+    <Parameter Name="Kilometers" Type="int" Mode="In" />
+    <Parameter Name="IsAvailable" Type="bit" Mode="In" />
+    <Parameter Name="VehicleServiceDetails" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="updateVehicleService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDservice" Type="int" Mode="In" />
+    <Parameter Name="ServiceDetails" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ServiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="VehicleID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="writeDriversToXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="writeVehiclesToXml" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="PPPKModelStoreContainer">
+    <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TravelRoute" EntityType="Self.TravelRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TravelWarrant" EntityType="Self.TravelWarrant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleService" EntityType="Self.VehicleService" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TravelRou__Trave__2C3393D0" Association="Self.FK__TravelRou__Trave__2C3393D0">
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+      <End Role="TravelRoute" EntitySet="TravelRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelWar__Drive__286302EC" Association="Self.FK__TravelWar__Drive__286302EC">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravelWar__Vehic__29572725" Association="Self.FK__TravelWar__Vehic__29572725">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="TravelWarrant" EntitySet="TravelWarrant" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VehicleSe__Vehic__2F10007B" Association="Self.FK__VehicleSe__Vehic__2F10007B">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="VehicleService" EntitySet="VehicleService" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

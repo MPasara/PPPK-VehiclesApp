@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPPK", "PPPK.csproj", "{1092D779-FDF1-4E3B-A9E0-C37045816E55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "..\Entity\Entity.csproj", "{7C4F5432-2493-4F94-BD47-F8F74AB44EF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1092D779-FDF1-4E3B-A9E0-C37045816E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1092D779-FDF1-4E3B-A9E0-C37045816E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1092D779-FDF1-4E3B-A9E0-C37045816E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1092D779-FDF1-4E3B-A9E0-C37045816E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4F5432-2493-4F94-BD47-F8F74AB44EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4F5432-2493-4F94-BD47-F8F74AB44EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4F5432-2493-4F94-BD47-F8F74AB44EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4F5432-2493-4F94-BD47-F8F74AB44EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {096D2F42-A88C-4924-8A98-8DE1B0223F22}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

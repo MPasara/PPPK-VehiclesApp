@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DbData>
+  <travelWarrant id="1">
+    <commander>drake</commander>
+    <warrantNumber>1</warrantNumber>
+    <driver>
+      <id>1</id>
+      <firstname>Mladen</firstname>
+      <surname>Pašara</surname>
+      <phoneNumber>1</phoneNumber>
+      <drivingLicenceNumber>1</drivingLicenceNumber>
+    </driver>
+    <vehicle>
+      <id>1</id>
+      <vehicleType>a</vehicleType>
+      <Make>a</Make>
+      <yearOfMake>1</yearOfMake>
+      <kilometers>1</kilometers>
+      <isAvailable>True</isAvailable>
+    </vehicle>
+    <travelRoute />
+    <StartPoint>zg</StartPoint>
+    <Destination>st</Destination>
+    <QuantityOfDays>2</QuantityOfDays>
+    <DateOfOpening>2.2.2009. 0:00:00</DateOfOpening>
+    <DateOfClosing>4.2.2009. 0:00:00</DateOfClosing>
+  </travelWarrant>
+</DbData>

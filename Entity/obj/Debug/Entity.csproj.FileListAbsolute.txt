@@ -1,0 +1,12 @@
+C:\Users\pasar\Desktop\PPPK\Entity\bin\Debug\Entity.exe.config
+C:\Users\pasar\Desktop\PPPK\Entity\bin\Debug\Entity.exe
+C:\Users\pasar\Desktop\PPPK\Entity\bin\Debug\Entity.pdb
+C:\Users\pasar\Desktop\PPPK\Entity\bin\Debug\EntityFramework.dll
+C:\Users\pasar\Desktop\PPPK\Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pasar\Desktop\PPPK\Entity\bin\Debug\EntityFramework.xml
+C:\Users\pasar\Desktop\PPPK\Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pasar\Desktop\PPPK\Entity\obj\Debug\Entity.csprojAssemblyReference.cache
+C:\Users\pasar\Desktop\PPPK\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\pasar\Desktop\PPPK\Entity\obj\Debug\Entity.csproj.CopyComplete
+C:\Users\pasar\Desktop\PPPK\Entity\obj\Debug\Entity.exe
+C:\Users\pasar\Desktop\PPPK\Entity\obj\Debug\Entity.pdb

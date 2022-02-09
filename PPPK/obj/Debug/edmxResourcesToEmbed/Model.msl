@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PPPKModelStoreContainer" CdmEntityContainer="PPPKEntities">
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="PPPKModel.Driver">
+        <MappingFragment StoreEntitySet="Driver">
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelRoutes">
+      <EntityTypeMapping TypeName="PPPKModel.TravelRoute">
+        <MappingFragment StoreEntitySet="TravelRoute">
+          <ScalarProperty Name="IDRoute" ColumnName="IDRoute" />
+          <ScalarProperty Name="TravelHours" ColumnName="TravelHours" />
+          <ScalarProperty Name="CoordinateA" ColumnName="CoordinateA" />
+          <ScalarProperty Name="CoordinateB" ColumnName="CoordinateB" />
+          <ScalarProperty Name="KilometersTavelled" ColumnName="KilometersTavelled" />
+          <ScalarProperty Name="AverageSpeed" ColumnName="AverageSpeed" />
+          <ScalarProperty Name="FuelSpent" ColumnName="FuelSpent" />
+          <ScalarProperty Name="TravelWarrantID" ColumnName="TravelWarrantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelWarrants">
+      <EntityTypeMapping TypeName="PPPKModel.TravelWarrant">
+        <MappingFragment StoreEntitySet="TravelWarrant">
+          <ScalarProperty Name="IDTravelWarrant" ColumnName="IDTravelWarrant" />
+          <ScalarProperty Name="Commander" ColumnName="Commander" />
+          <ScalarProperty Name="WarrantNumber" ColumnName="WarrantNumber" />
+          <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="QuantityOfDays" ColumnName="QuantityOfDays" />
+          <ScalarProperty Name="DateOfOpening" ColumnName="DateOfOpening" />
+          <ScalarProperty Name="DateOfClosing" ColumnName="DateOfClosing" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="PPPKModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="YearOfMake" ColumnName="YearOfMake" />
+          <ScalarProperty Name="Kilometers" ColumnName="Kilometers" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="VehicleServiceDetails" ColumnName="VehicleServiceDetails" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleServices">
+      <EntityTypeMapping TypeName="PPPKModel.VehicleService">
+        <MappingFragment StoreEntitySet="VehicleService">
+          <ScalarProperty Name="IDservice" ColumnName="IDservice" />
+          <ScalarProperty Name="ServiceDetails" ColumnName="ServiceDetails" />
+          <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="addExampleRecords" FunctionName="PPPKModel.Store.addExampleRecords" />
+    <FunctionImportMapping FunctionImportName="cleanDatabase" FunctionName="PPPKModel.Store.cleanDatabase" />
+    <FunctionImportMapping FunctionImportName="createDriver" FunctionName="PPPKModel.Store.createDriver" />
+    <FunctionImportMapping FunctionImportName="createTravelRoute" FunctionName="PPPKModel.Store.createTravelRoute" />
+    <FunctionImportMapping FunctionImportName="createTravelWarrant" FunctionName="PPPKModel.Store.createTravelWarrant" />
+    <FunctionImportMapping FunctionImportName="createVehicle" FunctionName="PPPKModel.Store.createVehicle" />
+    <FunctionImportMapping FunctionImportName="createVehicleService" FunctionName="PPPKModel.Store.createVehicleService" />
+    <FunctionImportMapping FunctionImportName="deleteDriver" FunctionName="PPPKModel.Store.deleteDriver" />
+    <FunctionImportMapping FunctionImportName="deleteRoute" FunctionName="PPPKModel.Store.deleteRoute" />
+    <FunctionImportMapping FunctionImportName="deleteTravelWarrant" FunctionName="PPPKModel.Store.deleteTravelWarrant" />
+    <FunctionImportMapping FunctionImportName="deleteVehicle" FunctionName="PPPKModel.Store.deleteVehicle" />
+    <FunctionImportMapping FunctionImportName="deleteVehicleService" FunctionName="PPPKModel.Store.deleteVehicleService" />
+    <FunctionImportMapping FunctionImportName="exportDataToXml" FunctionName="PPPKModel.Store.exportDataToXml">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.exportDataToXml_Result">
+          <ScalarProperty Name="IDRoute" ColumnName="IDRoute" />
+          <ScalarProperty Name="TravelHours" ColumnName="TravelHours" />
+          <ScalarProperty Name="CoordinateA" ColumnName="CoordinateA" />
+          <ScalarProperty Name="CoordinateB" ColumnName="CoordinateB" />
+          <ScalarProperty Name="KilometersTavelled" ColumnName="KilometersTavelled" />
+          <ScalarProperty Name="AverageSpeed" ColumnName="AverageSpeed" />
+          <ScalarProperty Name="FuelSpent" ColumnName="FuelSpent" />
+          <ScalarProperty Name="TravelWarrantID" ColumnName="TravelWarrantID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getAllDataFromDatabase" FunctionName="PPPKModel.Store.getAllDataFromDatabase">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.getAllDataFromDatabase_Result">
+          <ScalarProperty Name="IDTravelWarrant" ColumnName="IDTravelWarrant" />
+          <ScalarProperty Name="Commander" ColumnName="Commander" />
+          <ScalarProperty Name="WarrantNumber" ColumnName="WarrantNumber" />
+          <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="QuantityOfDays" ColumnName="QuantityOfDays" />
+          <ScalarProperty Name="DateOfOpening" ColumnName="DateOfOpening" />
+          <ScalarProperty Name="DateOfClosing" ColumnName="DateOfClosing" />
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="YearOfMake" ColumnName="YearOfMake" />
+          <ScalarProperty Name="Kilometers" ColumnName="Kilometers" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectDriver" FunctionName="PPPKModel.Store.selectDriver">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectDriver_Result">
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectDrivers" FunctionName="PPPKModel.Store.selectDrivers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectDrivers_Result">
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTravelRoute" FunctionName="PPPKModel.Store.selectTravelRoute">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectTravelRoute_Result">
+          <ScalarProperty Name="IDRoute" ColumnName="IDRoute" />
+          <ScalarProperty Name="TravelHours" ColumnName="TravelHours" />
+          <ScalarProperty Name="CoordinateA" ColumnName="CoordinateA" />
+          <ScalarProperty Name="CoordinateB" ColumnName="CoordinateB" />
+          <ScalarProperty Name="KilometersTavelled" ColumnName="KilometersTavelled" />
+          <ScalarProperty Name="AverageSpeed" ColumnName="AverageSpeed" />
+          <ScalarProperty Name="FuelSpent" ColumnName="FuelSpent" />
+          <ScalarProperty Name="TravelWarrantID" ColumnName="TravelWarrantID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTravelRoutes" FunctionName="PPPKModel.Store.selectTravelRoutes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectTravelRoutes_Result">
+          <ScalarProperty Name="IDRoute" ColumnName="IDRoute" />
+          <ScalarProperty Name="TravelHours" ColumnName="TravelHours" />
+          <ScalarProperty Name="CoordinateA" ColumnName="CoordinateA" />
+          <ScalarProperty Name="CoordinateB" ColumnName="CoordinateB" />
+          <ScalarProperty Name="KilometersTavelled" ColumnName="KilometersTavelled" />
+          <ScalarProperty Name="AverageSpeed" ColumnName="AverageSpeed" />
+          <ScalarProperty Name="FuelSpent" ColumnName="FuelSpent" />
+          <ScalarProperty Name="TravelWarrantID" ColumnName="TravelWarrantID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTravelWarrant" FunctionName="PPPKModel.Store.selectTravelWarrant">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectTravelWarrant_Result">
+          <ScalarProperty Name="IDTravelWarrant" ColumnName="IDTravelWarrant" />
+          <ScalarProperty Name="Commander" ColumnName="Commander" />
+          <ScalarProperty Name="WarrantNumber" ColumnName="WarrantNumber" />
+          <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="QuantityOfDays" ColumnName="QuantityOfDays" />
+          <ScalarProperty Name="DateOfOpening" ColumnName="DateOfOpening" />
+          <ScalarProperty Name="DateOfClosing" ColumnName="DateOfClosing" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectTravelWarrants" FunctionName="PPPKModel.Store.selectTravelWarrants">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectTravelWarrants_Result">
+          <ScalarProperty Name="IDTravelWarrant" ColumnName="IDTravelWarrant" />
+          <ScalarProperty Name="Commander" ColumnName="Commander" />
+          <ScalarProperty Name="WarrantNumber" ColumnName="WarrantNumber" />
+          <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="QuantityOfDays" ColumnName="QuantityOfDays" />
+          <ScalarProperty Name="DateOfOpening" ColumnName="DateOfOpening" />
+          <ScalarProperty Name="DateOfClosing" ColumnName="DateOfClosing" />
+          <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectVehicle" FunctionName="PPPKModel.Store.selectVehicle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectVehicle_Result">
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="YearOfMake" ColumnName="YearOfMake" />
+          <ScalarProperty Name="Kilometers" ColumnName="Kilometers" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="VehicleServiceDetails" ColumnName="VehicleServiceDetails" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectVehicles" FunctionName="PPPKModel.Store.selectVehicles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectVehicles_Result">
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="YearOfMake" ColumnName="YearOfMake" />
+          <ScalarProperty Name="Kilometers" ColumnName="Kilometers" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="VehicleServiceDetails" ColumnName="VehicleServiceDetails" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectVehicleService" FunctionName="PPPKModel.Store.selectVehicleService">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectVehicleService_Result">
+          <ScalarProperty Name="IDservice" ColumnName="IDservice" />
+          <ScalarProperty Name="ServiceDetails" ColumnName="ServiceDetails" />
+          <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectVehicleServices" FunctionName="PPPKModel.Store.selectVehicleServices">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.selectVehicleServices_Result">
+          <ScalarProperty Name="IDservice" ColumnName="IDservice" />
+          <ScalarProperty Name="ServiceDetails" ColumnName="ServiceDetails" />
+          <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="updateDriver" FunctionName="PPPKModel.Store.updateDriver" />
+    <FunctionImportMapping FunctionImportName="updateTravelRoute" FunctionName="PPPKModel.Store.updateTravelRoute" />
+    <FunctionImportMapping FunctionImportName="updateTravelWarrant" FunctionName="PPPKModel.Store.updateTravelWarrant" />
+    <FunctionImportMapping FunctionImportName="updateVehicle" FunctionName="PPPKModel.Store.updateVehicle" />
+    <FunctionImportMapping FunctionImportName="updateVehicleService" FunctionName="PPPKModel.Store.updateVehicleService" />
+    <FunctionImportMapping FunctionImportName="writeDriversToXml" FunctionName="PPPKModel.Store.writeDriversToXml">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.writeDriversToXml_Result">
+          <ScalarProperty Name="IDDriver" ColumnName="IDDriver" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="writeVehiclesToXml" FunctionName="PPPKModel.Store.writeVehiclesToXml">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PPPKModel.writeVehiclesToXml_Result">
+          <ScalarProperty Name="IDVehicle" ColumnName="IDVehicle" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="YearOfMake" ColumnName="YearOfMake" />
+          <ScalarProperty Name="Kilometers" ColumnName="Kilometers" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="VehicleServiceDetails" ColumnName="VehicleServiceDetails" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
